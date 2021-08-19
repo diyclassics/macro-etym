@@ -234,6 +234,7 @@ class Text():
     @property
     def types(self):
         """ Get types (unique words) from a list of tokens. """
+        print(self.)
         return set(self.clean_tokens)
 
     @property
@@ -256,7 +257,6 @@ class Text():
                        "N": wn.NOUN,
                        "R": wn.ADV}
             return tag_map.get(treebank_tag, 'n')
-
         return [lemmatizer.lemmatize(word, get_wordnet_pos(pos))
                   for word, pos in self.posTags]
 
@@ -440,6 +440,9 @@ def cli(filenames, allstats, lang, showfamilies, affixes,
         fig.tight_layout()
         fig.savefig('chart.png')
         print('Chart saved as chart.png.')
+
+def macroetym(text, lang='eng', ignoreAffixes=True, ignoreCurrent=True):
+    return Text(text, lang, ignoreAffixes, ignoreCurrent)
 
 if __name__ == '__main__':
     cli()
