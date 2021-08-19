@@ -5,3 +5,7 @@ etymwn/
 macroetym.egg-info/
 texts/
 macroetym/__pycache__
+
+# PyCharm
+.idea
+
